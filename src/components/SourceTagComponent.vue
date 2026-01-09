@@ -1,5 +1,5 @@
 <template>
-    <div :style="tagStyle" class="px-3 text-[1rem] rounded-md h-fit order-999 items-center flex">
+    <div :style="tagStyle" class="px-3 text-[1rem] rounded-md h-fit order-999 items-center flex w-fit">
         <span>{{ tagStyles[props.tag].text }}</span>
     </div>
 </template>

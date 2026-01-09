@@ -3,9 +3,9 @@
         <div class="flex gap-5">
             <img v-if="project.icon" :src="project.icon" class="aspect-square h-full">
             <div class="flex flex-col w-full">
-                <div class="flex gap-3 w-full h-full">
-                <span class="text-2xl w-fit text-nowrap">{{ $t(`projects.${project.name}.title`) }}</span>
-                <div class="flex gap-3 w-full h-full flex-wrap">
+                <div class="flex flex-col lg:flex-row gap-3 w-full h-full">
+                <span class="text-2xl w-fit h-fit text-nowrap">{{ $t(`projects.${project.name}.title`) }}</span>
+                <div class="flex flex-col lg:flex-row gap-3 w-full h-full flex-wrap pb-5 lg:pb-0">
                     <SourceTagComponent :tag="project.source" />
                     <LicenseComponent v-if="project.source === 'open'" :license="project.license" />
                     <PLangaugeComponent v-if="project.framework && (typeof project.framework === 'string')" :tag="project.framework" />
