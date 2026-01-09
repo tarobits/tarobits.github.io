@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects"
+  },
+  "page": {
+    "home": {
+      "welcometext": "Welcome to my personal page! Here you can find out more about me and what I do."
+    }
+  },
+  "projects": {
+    "bookorganizer": {
+      "title": "Book Organizer",
+      "description": "A Web-App for organizing your books into virtual bookshelves and sharing them via link or embed."
+    },
+    "shelfrenderingengine": {
+      "title": "Shelf Rendering Engine",
+      "description": "A rendering engine for vue3 for rendering customizable shelves."
+    }
+  },
+  "components": {
+    "projectcomponent": {
+      "notreleased": "Not Released"
+    },
+    "license": "License",
+    "plang": {
+      "lang": "Language"
+    }
+  },
+  "title": "Tarobits"
+}
