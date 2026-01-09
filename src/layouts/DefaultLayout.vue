@@ -1,5 +1,5 @@
 <template>
-    <div class="h-screen w-screen flex flex-col bg-gray-800">
+    <div class="h-screen w-screen overflow-hidden flex flex-col bg-gray-800">
         <div class="w-screen h-fit py-5 px-10 z-999 bg-gray-900 rounded-b-2xl flex gap-10 shadow-md shadow-gray-950">   
             <span class="text-3xl z-1 text-gray-200 overflow-hidden">{{ $t('title') }}</span>
             <div class="w-full h-full flex flex-1 gap-5">
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-screen h-full relative">
+        <div class="w-screen h-full relative overflow-hidden">
             <canvas class="z-2 absolute h-full w-full inset-0" ref="canvas"></canvas>
             <div class="w-full h-full p-5">
                 <slot></slot>
