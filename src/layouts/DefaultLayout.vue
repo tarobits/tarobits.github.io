@@ -5,12 +5,12 @@
             <div class="w-full h-fit overflow-hidden flex flex-1 flex-wrap gap-3 md:gap-5">
                 <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-4 lg:px-5 cursor-pointer text-sm md:text-[1rem]" @click="router.push('/')" :disabled="$route.path === '/'">{{ $t('nav.home') }}</button>
                 <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer text-sm md:text-[1rem]" @click="router.push('/projects/')" :disabled="$route.path.match(/^\/projects\/?.*?/) !== null">{{ $t('nav.projects') }}</button>
-                <a href="https://github.com/tarobits" class="h-full flex gap-2 items-center text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer text-sm md:text-[1rem]"><img :src="GitHub" class="aspect-square h-5" /><span>GitHub</span></a>
-                <div class="w-fit h-full ml-0 md:ml-auto flex gap-2 items-center order-999">
+                <div class="w-fit h-full ml-0 md:ml-auto flex gap-2 items-center">
                     <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm md:text-[1rem]" :disabled="locale === 'de'" @click="setLang('de')">🇩🇪 Deutsch</button>
                     <span class="text-gray-400 text-2xl">|</span>
                     <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm md:text-[1rem]" @click="setLang('en')" :disabled="locale === 'en'">🇬🇧/🇺🇸 English</button>
                 </div>
+                <a href="https://github.com/tarobits" class="h-full flex gap-2 ml-auto md:ml-0 items-center text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer text-sm md:text-[1rem]"><img :src="GitHub" class="aspect-square h-5" /><span>GitHub</span></a>
             </div>
         </div>
         <div class="w-full h-full flex-1 grid relative bg-gray-800 overflow-hidden">
