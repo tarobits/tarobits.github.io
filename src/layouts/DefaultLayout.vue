@@ -145,7 +145,8 @@ onMounted(() => {
 
     animate();
 
-    window.addEventListener('mousemove', (ev) => {
+    function handlePointerEvent(ev: PointerEvent) {
+        if (!c) return;
         pixels.forEach(p => {
             const dx = (ev.clientX - (window.innerWidth - c.width)) - p.x;
             const dy = (ev.clientY - (window.innerHeight - c.height)) - p.y;
@@ -156,6 +157,14 @@ onMounted(() => {
                 p.vy -= dy / dist * 0.2;
             }
         })
+    }
+
+    window.addEventListener('pointerdown', (ev) => {
+        handlePointerEvent(ev);
+    })
+
+    window.addEventListener('pointermove', (ev) => {
+        handlePointerEvent(ev);
     })
 })
 </script>
