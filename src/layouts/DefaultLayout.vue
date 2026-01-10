@@ -4,11 +4,11 @@
             <span class="text-3xl z-1 text-gray-200 overflow-hidden text-center">{{ $t('title') }}</span>
             <div class="w-full h-fit overflow-hidden flex flex-1 flex-wrap gap-3 lg:gap-5">
                 <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-4 lg:px-5 cursor-pointer text-sm lg:text-[1rem]" @click="router.push('/')" :disabled="$route.path === '/'">{{ $t('nav.home') }}</button>
-                <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer text-sm" @click="router.push('/projects/')" :disabled="$route.path.match(/^\/projects\/?.*?/) !== null">{{ $t('nav.projects') }}</button>
+                <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer text-sm lg:text-[1rem]" @click="router.push('/projects/')" :disabled="$route.path.match(/^\/projects\/?.*?/) !== null">{{ $t('nav.projects') }}</button>
                 <div class="w-fit h-full ml-0 lg:ml-auto flex gap-2 items-center order-999">
-                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm" :disabled="locale === 'de'" @click="setLang('de')">🇩🇪 Deutsch</button>
+                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm lg:text-[1rem]" :disabled="locale === 'de'" @click="setLang('de')">🇩🇪 Deutsch</button>
                     <span class="text-gray-400 text-2xl">|</span>
-                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm" @click="setLang('en')" :disabled="locale === 'en'">🇬🇧/🇺🇸 English</button>
+                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm lg:text-[1rem]" @click="setLang('en')" :disabled="locale === 'en'">🇬🇧/🇺🇸 English</button>
                 </div>
             </div>
         </div>
