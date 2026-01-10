@@ -5,7 +5,10 @@
   },
   "page": {
     "home": {
-      "welcometext": "Willkommen auf meiner persönlichen Seite! \nHier erfahren Sie mehr über mich und was ich kann."
+      "welcometext": "Willkommen auf meiner persönlichen Seite! \nHier erfahren Sie mehr über mich und was ich kann.",
+      "frameworks": "Frameworks",
+      "planguages": "Programmiersprachen",
+      "userdesc": "Full-Stack Webentwickler"
     }
   },
   "projects": {
