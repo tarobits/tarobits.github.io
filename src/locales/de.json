@@ -26,9 +26,7 @@
       "notreleased": "Nicht Veröffentlicht"
     },
     "license": "Lizenz",
-    "plang": {
-      "lang": "Sprache"
-    }
+    "plang": {}
   },
   "title": "Tarobits"
 }
