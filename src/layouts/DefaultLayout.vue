@@ -1,14 +1,15 @@
 <template>
     <div class="min-h-full max-h-svh w-full flex flex-col overflow-hidden">
-        <div class="w-full h-fit py-5 px-10 z-999 bg-gray-900 rounded-b-2xl flex flex-col lg:flex-row gap-x-10 gap-y-2 shadow-md shadow-gray-950"> 
+        <div class="w-full h-fit py-5 px-10 z-999 bg-gray-900 rounded-b-2xl flex flex-col md:flex-row gap-x-10 gap-y-2 shadow-md shadow-gray-950"> 
             <span class="text-3xl z-1 text-gray-200 overflow-hidden text-center">{{ $t('title') }}</span>
-            <div class="w-full h-fit overflow-hidden flex flex-1 flex-wrap gap-3 lg:gap-5">
-                <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-4 lg:px-5 cursor-pointer text-sm lg:text-[1rem]" @click="router.push('/')" :disabled="$route.path === '/'">{{ $t('nav.home') }}</button>
-                <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer text-sm lg:text-[1rem]" @click="router.push('/projects/')" :disabled="$route.path.match(/^\/projects\/?.*?/) !== null">{{ $t('nav.projects') }}</button>
-                <div class="w-fit h-full ml-0 lg:ml-auto flex gap-2 items-center order-999">
-                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm lg:text-[1rem]" :disabled="locale === 'de'" @click="setLang('de')">🇩🇪 Deutsch</button>
+            <div class="w-full h-fit overflow-hidden flex flex-1 flex-wrap gap-3 md:gap-5">
+                <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-4 lg:px-5 cursor-pointer text-sm md:text-[1rem]" @click="router.push('/')" :disabled="$route.path === '/'">{{ $t('nav.home') }}</button>
+                <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer text-sm md:text-[1rem]" @click="router.push('/projects/')" :disabled="$route.path.match(/^\/projects\/?.*?/) !== null">{{ $t('nav.projects') }}</button>
+                <a href="https://github.com/tarobits" class="h-full flex gap-2 items-center text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer text-sm md:text-[1rem]"><img :src="GitHub" class="aspect-square h-5" /><span>GitHub</span></a>
+                <div class="w-fit h-full ml-0 md:ml-auto flex gap-2 items-center order-999">
+                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm md:text-[1rem]" :disabled="locale === 'de'" @click="setLang('de')">🇩🇪 Deutsch</button>
                     <span class="text-gray-400 text-2xl">|</span>
-                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm lg:text-[1rem]" @click="setLang('en')" :disabled="locale === 'en'">🇬🇧/🇺🇸 English</button>
+                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm md:text-[1rem]" @click="setLang('en')" :disabled="locale === 'en'">🇬🇧/🇺🇸 English</button>
                 </div>
             </div>
         </div>
@@ -25,8 +26,12 @@
 import { onMounted, ref } from 'vue';
 import router from '../router';
 import { useI18n } from 'vue-i18n';
+import GitHub from '../assets/github-mark-white.png';
+import { useRoute } from 'vue-router';
 
 const { locale } = useI18n();
+
+const route = useRoute();
 
 function setLang(lang: string) {
     locale.value = lang;
@@ -45,7 +50,12 @@ type Pixel = {
 }
 
 onMounted(() => {
-    locale.value = localStorage.getItem('language') ?? navigator.language.substring(0,2);
+    if (route.query['lang'] && typeof route.query['lang'] === "string") {
+        locale.value = route.query['lang'];
+        localStorage.setItem('language', route.query['lang']);
+    } else {
+        locale.value = localStorage.getItem('language') ?? navigator.language.substring(0,2);
+    }
 
     const c = canvas.value;
     if (!c) return;
