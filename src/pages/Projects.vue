@@ -1,7 +1,7 @@
 <template>
     <DefaultLayout>
         <div class="flex flex-col items-center pt-10 gap-5 w-full h-full">
-            <span class="text-7xl p-5 text-gray-200 overflow-hidden">{{ $t('nav.projects') }}</span>
+            <span class="text-5xl lg:text-7xl p-5 h-fit text-gray-200 overflow-hidden">{{ $t('nav.projects') }}</span>
             <div class="bg-gray-800/80 z-2 w-fit max-w-[80%] h-fit p-10 rounded-2xl flex flex-col gap-5 overflow-x-hidden overflow-y-scroll">
                 <ProjectComponent v-for="p in projects" :key="p.name" :project="p" />
             </div>

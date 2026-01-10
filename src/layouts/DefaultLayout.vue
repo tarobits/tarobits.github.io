@@ -1,20 +1,20 @@
 <template>
-    <div class="h-full w-full flex flex-col overflow-hidden">
-        <div class="w-full h-fit py-5 px-10 z-999 bg-gray-900 rounded-b-2xl flex gap-10 shadow-md shadow-gray-950">   
-            <span class="text-3xl z-1 text-gray-200 overflow-hidden">{{ $t('title') }}</span>
-            <div class="w-full h-full flex flex-1 gap-5">
-                <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer" @click="router.push('/')" :disabled="$route.path === '/'">{{ $t('nav.home') }}</button>
-                <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer" @click="router.push('/projects/')" :disabled="$route.path.match(/^\/projects\/?.*?/) !== null">{{ $t('nav.projects') }}</button>
-                <div class="w-fit h-full ml-auto flex gap-2 items-center order-999">
-                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer" :disabled="locale === 'de'" @click="setLang('de')">🇩🇪 Deutsch</button>
+    <div class="min-h-full max-h-svh w-full flex flex-col overflow-hidden">
+        <div class="w-full h-fit py-5 px-10 z-999 bg-gray-900 rounded-b-2xl flex flex-col lg:flex-row gap-x-10 gap-y-2 shadow-md shadow-gray-950"> 
+            <span class="text-3xl z-1 text-gray-200 overflow-hidden text-center">{{ $t('title') }}</span>
+            <div class="w-full h-fit overflow-hidden flex flex-1 flex-wrap gap-3 lg:gap-5">
+                <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-4 lg:px-5 cursor-pointer text-sm lg:text-[1rem]" @click="router.push('/')" :disabled="$route.path === '/'">{{ $t('nav.home') }}</button>
+                <button class="h-full text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl py-2 px-5 cursor-pointer text-sm" @click="router.push('/projects/')" :disabled="$route.path.match(/^\/projects\/?.*?/) !== null">{{ $t('nav.projects') }}</button>
+                <div class="w-fit h-full ml-0 lg:ml-auto flex gap-2 items-center order-999">
+                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm" :disabled="locale === 'de'" @click="setLang('de')">🇩🇪 Deutsch</button>
                     <span class="text-gray-400 text-2xl">|</span>
-                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer" @click="setLang('en')" :disabled="locale === 'en'">🇬🇧/🇺🇸 English</button>
+                    <button class="text-gray-400 bg-gray-900 hover:text-gray-200 hover:bg-gray-800 disabled:text-gray-200 disabled:bg-gray-800 rounded-xl p-2 cursor-pointer text-sm" @click="setLang('en')" :disabled="locale === 'en'">🇬🇧/🇺🇸 English</button>
                 </div>
             </div>
         </div>
-        <div class="w-full h-full flex-1 relative flex bg-gray-800 overflow-hidden">
+        <div class="w-full h-full flex-1 grid relative bg-gray-800 overflow-hidden">
             <canvas class="z-2 absolute h-full w-full inset-0" ref="canvas"></canvas>
-            <div class="w-full h-full flex p-5">
+            <div class="w-full h-full p-5 overflow-hidden">
                 <slot></slot>
             </div>
         </div>
