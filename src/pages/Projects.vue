@@ -17,13 +17,25 @@ import { ProjectType } from '../types/project';
 const projects: ProjectType[] = [
     {
         name: 'bookorganizer',
-        released: false,
+        released: true,
+        version: 'v0.1.4',
         source: 'open',
         license: 'AGPL',
         framework: {
             frontend: 'vue',
             backend: 'laravel'
-        }
+        },
+        links: [
+            {
+                url: 'https://github.com/tarobits/shelf-rendering-engine',
+                text: 'View on GitHub',
+                icon: 'github'
+            },
+            {
+                url: 'https://www.npmjs.com/package/@tarobits/shelf-rendering-engine',
+                text: 'Available on npm'
+            }
+        ]
     },
     {
         name: 'shelfrenderingengine',

@@ -8,10 +8,11 @@ type BaseProject = {
     released: boolean,
     source: 'open' | 'closed',
     icon?: string,
-    link?: {
+    links?: {
         url: string,
-        text: string
-    },
+        text: string,
+        icon?: 'github'
+    }[],
     framework?: {
         frontend: FrontendFrameworks,
         backend: BackendFrameworks

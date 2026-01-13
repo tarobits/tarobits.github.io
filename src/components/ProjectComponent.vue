@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-fit bg-gray-700/50 text-gray-100 p-5 rounded-2xl">
+    <div class="w-full h-fit flex flex-col bg-gray-700/50 text-gray-100 p-5 rounded-2xl gap-5">
         <div class="flex gap-5">
             <img v-if="project.icon" :src="project.icon" class="aspect-square h-full">
             <div class="flex flex-col w-full">
@@ -15,11 +15,14 @@
                 </div>
             </div>
                 <p v-if="!project.released" class="text-gray-400">{{ $t('components.projectcomponent.notreleased') }}</p>
-                <p v-else-if="project.version.substring(0,1) === '0'" class="text-yellow-300">{{ project.version }}</p>
-                <p v-else class="text-green-300">{{ project.version }}</p>
+                <p v-else-if="project.version.substring(0,2) === 'v0'" class="text-yellow-300">Version: {{ project.version }} (Pre-Release)</p>
+                <p v-else class="text-green-300">Version: {{ project.version }}</p>
             </div>
         </div>
-        <p class="mt-5 text-xl text-wrap">{{ $t(`projects.${project.name}.description`) }}</p>
+        <p class="text-xl text-wrap">{{ $t(`projects.${project.name}.description`) }}</p>
+        <div v-if="project.links" class="mt-auto w-full h-fit flex items-center gap-3">
+            <ProjectLink v-for="l,i in project.links" :key="l.text" :next="project.links[i+1]" :link="l" />
+        </div>
     </div>
 </template>
 
@@ -29,6 +32,7 @@ import { ProjectType } from '../types/project';
 import LicenseComponent from './LicenseComponent.vue';
 import SourceTagComponent from './SourceTagComponent.vue';
 import PLangaugeComponent from './PLangaugeComponent.vue';
+import ProjectLink from './ProjectLink.vue';
 
 
 const props = defineProps<{
