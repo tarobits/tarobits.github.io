@@ -13,36 +13,44 @@
 import ProjectComponent from '../components/ProjectComponent.vue';
 import DefaultLayout from '../layouts/DefaultLayout.vue';
 import { ProjectType } from '../types/project';
+import { useI18n } from 'vue-i18n';
+
+const i18n = useI18n();
 
 const projects: ProjectType[] = [
     {
         name: 'bookorganizer',
-        released: true,
-        version: 'v0.1.4',
+        title: i18n.t('projects.bookorganizer.title'),
+        description: i18n.t('projects.bookorganizer.description'),
+        released: false,
         source: 'open',
         license: 'AGPL',
         framework: {
             frontend: 'vue',
             backend: 'laravel'
         },
+    },
+    {
+        name: 'shelfrenderingengine',
+        title: i18n.t('projects.shelfrenderingengine.title'),
+        description: i18n.t('projects.shelfrenderingengine.description'),
+        released: true,
+        versionType: 'npm',
+        version: '@tarobits/shelf-rendering-engine',
+        source: 'open',
+        license: 'MPL',
+        framework: 'vue',
         links: [
             {
                 url: 'https://github.com/tarobits/shelf-rendering-engine',
-                text: 'View on GitHub',
+                text: i18n.t('page.projects.view-on-github'),
                 icon: 'github'
             },
             {
                 url: 'https://www.npmjs.com/package/@tarobits/shelf-rendering-engine',
-                text: 'Available on npm'
+                text: i18n.t('page.projects.available-on-npm')
             }
         ]
-    },
-    {
-        name: 'shelfrenderingengine',
-        released: false,
-        source: 'open',
-        license: 'MPL',
-        framework: 'vue'
     }
 ]
 

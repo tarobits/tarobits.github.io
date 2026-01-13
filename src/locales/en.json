@@ -9,6 +9,10 @@
       "userdesc": "full-stack web developer",
       "frameworks": "Frameworks",
       "planguages": "Programming Languages"
+    },
+    "projects": {
+      "view-on-github": "View on GitHub",
+      "available-on-npm": "Available on npm"
     }
   },
   "projects": {
@@ -18,7 +22,7 @@
     },
     "shelfrenderingengine": {
       "title": "Shelf Rendering Engine",
-      "description": "A rendering engine for vue3 for rendering customizable shelves."
+      "description": "A highly flexible rendering engine for virtual shelves, inventories, and catalog-like UIs, designed for Vue.js and powered by strict TypeScript models."
     }
   },
   "components": {

@@ -5,6 +5,8 @@ export type License = 'MIT' | 'Apache 2.0' | 'MPL' | 'LGPL' | 'GPL' | 'AGPL';
 
 type BaseProject = {
     name: string,
+    title: string,
+    description: string,
     released: boolean,
     source: 'open' | 'closed',
     icon?: string,
@@ -31,6 +33,7 @@ type ClosedSourceProject = BaseProject & {
 
 type ReleasedProject = (OpenSourceProject | ClosedSourceProject) & {
     released: true,
+    versionType: 'static' | 'npm',
     version: string
 }
 

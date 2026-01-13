@@ -9,6 +9,10 @@
       "frameworks": "Frameworks",
       "planguages": "Programmiersprachen",
       "userdesc": "Full-Stack Webentwickler"
+    },
+    "projects": {
+      "view-on-github": "Anschauen auf GitHub",
+      "available-on-npm": "Verfügbar auf npm"
     }
   },
   "projects": {
@@ -17,7 +21,7 @@
       "title": "Book Organizer"
     },
     "shelfrenderingengine": {
-      "description": "Eine Rendering-Engine für vue3 zum Rendern anpassbarer Regale.",
+      "description": "Eine äußerst flexible Rendering-Engine für virtuelle Regale, Inventare und katalogähnliche Benutzeroberflächen, die für Vue.js entwickelt wurde und auf strengen TypeScript-Modellen basiert.",
       "title": "Shelf Rendering Engine"
     }
   },
