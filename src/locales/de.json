@@ -11,8 +11,9 @@
       "userdesc": "Full-Stack Webentwickler"
     },
     "projects": {
-      "view-on-github": "Anschauen auf GitHub",
-      "available-on-npm": "Verfügbar auf npm"
+      "github": "Anschauen auf GitHub",
+      "npm": "Verfügbar auf npm",
+      "pre-release": "(Vorab-Version)"
     }
   },
   "projects": {

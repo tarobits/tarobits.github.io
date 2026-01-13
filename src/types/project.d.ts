@@ -13,6 +13,7 @@ type BaseProject = {
     links?: {
         url: string,
         text: string,
+        type: 'github' | 'npm',
         icon?: 'github'
     }[],
     framework?: {

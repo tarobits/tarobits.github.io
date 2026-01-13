@@ -10,6 +10,7 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref, watch } from 'vue';
 import ProjectComponent from '../components/ProjectComponent.vue';
 import DefaultLayout from '../layouts/DefaultLayout.vue';
 import { ProjectType } from '../types/project';
@@ -17,7 +18,7 @@ import { useI18n } from 'vue-i18n';
 
 const i18n = useI18n();
 
-const projects: ProjectType[] = [
+const projects = ref<ProjectType[]>([
     {
         name: 'bookorganizer',
         title: i18n.t('projects.bookorganizer.title'),
@@ -43,16 +44,36 @@ const projects: ProjectType[] = [
         links: [
             {
                 url: 'https://github.com/tarobits/shelf-rendering-engine',
-                text: i18n.t('page.projects.view-on-github'),
-                icon: 'github'
+                text: "",
+                icon: 'github',
+                type: 'github'
             },
             {
                 url: 'https://www.npmjs.com/package/@tarobits/shelf-rendering-engine',
-                text: i18n.t('page.projects.available-on-npm')
+                text: "",
+                type: 'npm'
             }
         ]
     }
-]
+]);
+
+function updateProjects() {
+    projects.value.forEach((p) => {
+        p.description = i18n.t(`projects.${p.name}.description`);
+        p.title = i18n.t(`projects.${p.name}.title`);
+        if (p.links) {
+            p.links.forEach((l) => {
+                l.text = i18n.t(`page.projects.${l.type}`);
+            })
+        }
+    })
+}
+
+watch(i18n.locale, updateProjects);
+
+onMounted(() => {
+    updateProjects();
+})
 
 </script>
 

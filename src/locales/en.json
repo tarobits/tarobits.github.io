@@ -11,8 +11,9 @@
       "planguages": "Programming Languages"
     },
     "projects": {
-      "view-on-github": "View on GitHub",
-      "available-on-npm": "Available on npm"
+      "github": "View on GitHub",
+      "npm": "Available on npm",
+      "pre-release": "(Pre-Release)"
     }
   },
   "projects": {

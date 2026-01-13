@@ -15,7 +15,7 @@
                 </div>
             </div>
                 <p v-if="!project.released" class="text-gray-400">{{ $t('components.projectcomponent.notreleased') }}</p>
-                <p v-else-if="version.substring(0,2) === 'v0'" class="text-yellow-300">Version: {{ version }} (Pre-Release)</p>
+                <p v-else-if="version.substring(0,2) === 'v0'" class="text-yellow-300">Version: {{ version }} {{$t('page.projects.pre-release')}}</p>
                 <p v-else class="text-green-300">Version: {{ version }}</p>
             </div>
         </div>
